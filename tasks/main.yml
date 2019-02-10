@@ -1,6 +1,53 @@
 ---
-#  - name: Install PHP 7.2
-#    yum
+  - name: PHP 7.2 - install from Remi's RPM repository
+    yum:
+      name:
+        - php
+        - php-cli
+        - php-pdo
+        - php-mysqlnd
+        - php-opcache
+        - php-xml
+        - php-gd
+        - php-devel
+        - php-mysql
+        - php-intl
+        - php-mbstring
+        - php-bcmath
+        - php-json
+        - php-iconv
+        - php-soap
+        - php-mcrypt
+      enablerepo: "remi-php72"
+      state: present
+
+  - name: PHP 7.2 - upload php.ini custom setting /etc/php.ini
+    template:
+      src: php.ini.j2
+      dest: /etc/php.ini
+      owner: root
+      group: root
+      mode: 0644
+
+  - name: PHP 7.2 - upload Opcache custom setting /etc/php.d/10-opcache.ini
+    template:
+      src: 10-opcache.ini.j2
+      dest: /etc/php.d/10-opcache.ini
+      owner: root
+      group: root
+      mode: 0644
+
+  - name: PHP 7.2 - install php-fpm
+    yum:
+      name: php-fpm
+      enablerepo: "remi-php72"
+      state: present
+
+  - name: PHP 7.2 - enable and start service php-fpm
+    systemd:
+      name: php-fpm
+      enabled: yes
+      state: started
 
 #  - debug:
 #      var: httpd_result

@@ -1,0 +1,22 @@
+---
+# Maximum execution time of each script, in seconds (default: 30)
+php_max_execution_time: '30'
+
+# Maximum amount of memory a script may consume (default: 128MB)
+php_memory_limit: '756M'
+
+# This directive informs PHP of which errors, warnings and notices you would like
+# it to take action for (default: "E_ALL & ~E_DEPRECATED & ~E_STRICT")
+php_error_reporting: "E_ALL"
+php_display_errors: "On"
+
+# Defines the default timezone used by the date functions (http://php.net/manual/en/timezones.php)
+php_date_timezone: "Europe/Warsaw"
+
+# Determines if Zend OPCache is enabled for the CLI version of PHP
+php_opcache_enable_cli: '1'
+php_opcache_memory_consumption: '512MB'
+php_opcache_max_accelerated_files: '60000'
+php_opcache_consistency_checks: '0'
+php_opcache_validate_timestamps: '0'
+
