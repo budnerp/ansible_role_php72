@@ -2,22 +2,19 @@
 Ansible role for PHP 7.2 installation for CentOS 7
 
 ## What's inside?
-1. Default config file: 
+1. Interesting PHP dirs and files: 
     ```
     /etc/php.ini
+    /etc/php.d/*
+    /etc/php-fpm.conf
+    /etc/php-fpm.d/*.conf
+    /var/log/php-fpm/www-error.log // as per /etc/php-fpm.d/www.conf
+    /var/log/php-fpm/www-slow.log // if enabled
+    session.save_path: /var/lib/php/session
+    soap.wsdl_cache_dir: /var/lib/php/wsdlcache
     ```
-2. Additional configuration files (eg. opcache, xdebug):
-    ``` 
-    /etc/php.d/
-    ```
-3. Default log files:
-    ``` 
-    /var/log/???
-    ```
-4. Default settings in defaults/main.yml
-5. Intention to make it fast for Magento 2. Currently no optimizations.
-    -[x] Opcache optimization as per Magento 2 recommendations
-    
+2. Custom settings as per defaults/main.yml
+   
 ## Tested on
 
 ## Installation
@@ -47,7 +44,7 @@ Ansible role for PHP 7.2 installation for CentOS 7
 -[ ] xdebug
 -[ ] configure sendmail + ;mail.log =
 -[ ] define error_log
--[ ] 
+-[ ] check php-fpm pm.status_path
 
 ## License
 Copyright (c) We Are Interactive under the MIT license.

@@ -1,4 +1,5 @@
 ---
+# PHP
 # Maximum execution time of each script, in seconds (default: 30)
 php_max_execution_time: '30'
 
@@ -20,3 +21,37 @@ php_opcache_max_accelerated_files: '60000'
 php_opcache_consistency_checks: '0'
 php_opcache_validate_timestamps: '0'
 
+#PHP-FPM {{php_fpm_}}
+# The address on which to accept FastCGI requests (default: 127.0.0.1:9000)
+php_fpm_listen: '/var/run/php-fpm/default.sock'
+
+# How the process manager will control the number of child processes?
+php_fpm_pm: 'dynamic'
+
+# Unix user/group of processes
+php_fpm_user: 'apache'
+php_fpm_group: 'apache'
+
+# Redirect worker stdout and stderr into main error log.
+php_fpm_catch_workers_output: 'yes'
+
+# Maximum number of child processes
+# Count equation: max_children = (MAX_MEMORY - 500MB)/20MB; MAX_MEMORY = 1024MB - set in Vagrantfile
+php_fpm_max_children: '20'
+
+# The number of child processes created on startup.
+# start_servers = 10% * pm.max_children
+php_fpm_start_servers: '1'
+
+# The desired minimum number of idle server processes.
+php_fpm_min_spare_servers: '1'
+
+# The desired maximum number of idle server processes.
+php_fpm_max_spare_servers: '2'
+
+# The number of requests each child process should execute before re-spawning.
+php_fpm_max_requests: '1000'
+
+# The timeout for serving a single request after which a PHP backtrace will be
+# dumped to the 'slowlog' file. A value of '0s' means 'off'.
+php_fpm_request_slowlog_timeout: '0'
