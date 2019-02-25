@@ -12,6 +12,7 @@ Ansible role for PHP 7.2 installation for CentOS 7
     /var/log/php-fpm/www-slow.log // if enabled
     session.save_path: /var/lib/php/session
     soap.wsdl_cache_dir: /var/lib/php/wsdlcache
+    /etc/opt/remi/php72/php.d/
     ```
 2. Custom settings as per defaults/main.yml
    

@@ -5,5 +5,5 @@
       state: restarted
     register: handler_restart_apache
 
-  - debug:
-      var: handler_restart_apache
+#  - debug:
+#      var: handler_restart_apache
