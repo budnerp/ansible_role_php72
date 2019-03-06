@@ -1,0 +1,14 @@
+---
+  - name: COMPOSER - upload /home/vagrant/composer-install.sh
+    template:
+      src: home/vagrant/composer-install.sh
+      dest: /home/vagrant/composer-install.sh
+      owner: vagrant
+      group: vagrant
+      mode: 0744
+
+  - name: COMPOSER - install composer
+    command: sh /home/vagrant/composer-install.sh
+    register: composer_result
+
+#  - debug: msg="{{ composer_result.stdout }}"

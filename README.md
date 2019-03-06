@@ -2,7 +2,13 @@
 Ansible role for PHP 7.2 installation for CentOS 7
 
 ## What's inside?
-1. Interesting PHP dirs and files: 
+- PHP 7.2.15 (cli)
+- Zend OPcache v7.2.15
+- Xdebug v2.6.1
+- Composer (global)
+- Custom settings as per `defaults/main.yml`
+
+##Interesting PHP dirs and files 
     ```
     /etc/php.ini
     /etc/php.d/*
@@ -14,7 +20,6 @@ Ansible role for PHP 7.2 installation for CentOS 7
     soap.wsdl_cache_dir: /var/lib/php/wsdlcache
     /etc/opt/remi/php72/php.d/
     ```
-2. Custom settings as per `defaults/main.yml`
    
 ## Tested on
 - PHP 7.2.15 (cli)

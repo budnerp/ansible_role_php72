@@ -1,0 +1,68 @@
+---
+  - name: PHP 7.2 - install from Remi's RPM repository
+    yum:
+      name:
+        - php
+        - php-cli
+        - php-pdo
+        - php-mysqlnd
+        - php-opcache
+        - php-xml
+        - php-gd
+        - php-devel
+        - php-mysql
+        - php-intl
+        - php-mbstring
+        - php-bcmath
+        - php-json
+        - php-iconv
+        - php-soap
+        - php-mcrypt
+      enablerepo: "remi-php72"
+      state: present
+
+  - name: PHP 7.2 - upload PHP custom setting /etc/php.ini
+    template:
+      src: etc/php.ini.j2
+      dest: /etc/php.ini
+      owner: root
+      group: root
+      mode: 0644
+
+  - name: PHP 7.2 - upload Opcache custom setting /etc/php.d/10-opcache.ini
+    template:
+      src: etc/php.d/10-opcache.ini.j2
+      dest: /etc/php.d/10-opcache.ini
+      owner: root
+      group: root
+      mode: 0644
+
+  - name: PHP 7.2 - install php-fpm
+    yum:
+      name: php-fpm
+      enablerepo: "remi-php72"
+      state: present
+
+  - name: PHP 7.2 - upload php-fpm custom setting /etc/php-fpm.d/www.conf
+    template:
+      src: etc/php-fpm.d/www.conf.j2
+      dest: /etc/php-fpm.d/www.conf
+      owner: root
+      group: root
+      mode: 0644
+
+  - name: PHP 7.2 - upload httpd php.conf custom setting /etc/httpd/conf.d/php.conf
+    template:
+      src: etc/httpd/conf.d/php.conf.j2
+      dest: /etc/httpd/conf.d/php.conf
+      owner: root
+      group: root
+      mode: 0644
+
+  - name: PHP 7.2 - enable and start service php-fpm, restart httpd
+    systemd:
+      name: php-fpm
+      enabled: yes
+      state: started
+    notify:
+      - restart apache
