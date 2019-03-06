@@ -18,6 +18,7 @@
         - php-iconv
         - php-soap
         - php-mcrypt
+        - php-zip
       enablerepo: "remi-php72"
       state: present
 
