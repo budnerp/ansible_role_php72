@@ -11,4 +11,12 @@
     command: sh /home/vagrant/composer-install.sh
     register: composer_result
 
+  - name: COMPOSER - create symbolic link /usr/local/bin/composer -> /usr/bin/composer
+    file:
+      src: /usr/local/bin/composer
+      dest: /usr/bin/composer
+      owner: root
+      group: root
+      state: link
+
 #  - debug: msg="{{ composer_result.stdout }}"
