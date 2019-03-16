@@ -19,6 +19,8 @@
         - php-soap
         - php-mcrypt
         - php-zip
+        - php-phpiredis
+        - php-pecl-redis
       enablerepo: "remi-php72"
       state: present
 
