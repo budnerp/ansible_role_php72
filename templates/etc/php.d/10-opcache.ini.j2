@@ -44,7 +44,9 @@ opcache.validate_timestamps={{php_opcache_validate_timestamps}}
 
 ; If disabled, all PHPDoc comments are dropped from the code to reduce the
 ; size of the optimized code.
-;opcache.save_comments=1
+; Magento 2 official suggestion is to turn save_comments on.
+; Check at https://devdocs.magento.com/guides/v2.3/install-gde/prereq/php-settings.html
+opcache.save_comments=1
 
 ; If enabled, a fast shutdown sequence is used for the accelerated code
 ; Depending on the used Memory Manager this may cause some incompatibilities.
