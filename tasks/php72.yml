@@ -18,8 +18,12 @@
         - php-iconv
         - php-soap
         - php-mcrypt
-        - php-zip
-      enablerepo: "remi-php72"
+        - php-phpiredis
+        - php-pecl-redis
+        - php-pecl-zip
+      skip_broken: yes
+      update_cache: yes
+      enablerepo: "remi,remi-php72"
       state: present
 
   - name: PHP - upload PHP custom setting /etc/php.ini
