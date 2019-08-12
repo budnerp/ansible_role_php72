@@ -4,7 +4,8 @@
 php_max_execution_time: '30'
 
 # Maximum amount of memory a script may consume (default: 128MB)
-php_memory_limit: '756M'
+#php_memory_limit: '756M'
+php_memory_limit: '1536M'
 
 # This directive informs PHP of which errors, warnings and notices you would like
 # it to take action for (default: "E_ALL & ~E_DEPRECATED & ~E_STRICT")
@@ -19,7 +20,7 @@ php_opcache_enable_cli: '1'
 php_opcache_memory_consumption: '512MB'
 php_opcache_max_accelerated_files: '60000'
 php_opcache_consistency_checks: '0'
-php_opcache_validate_timestamps: '0'
+php_opcache_validate_timestamps: '1'
 
 #PHP-FPM {{php_fpm_}}
 # The address on which to accept FastCGI requests (default: 127.0.0.1:9000)
@@ -55,3 +56,5 @@ php_fpm_max_requests: '1000'
 # The timeout for serving a single request after which a PHP backtrace will be
 # dumped to the 'slowlog' file. A value of '0s' means 'off'.
 php_fpm_request_slowlog_timeout: '0'
+
+php_fpm_memory_limit: '756M'
