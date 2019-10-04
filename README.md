@@ -48,9 +48,7 @@ Ansible role for PHP 7.2 installation for CentOS 7
 - Magento 2.3 - Software recommendations [https://devdocs.magento.com/guides/v2.3/performance-best-practices/software.html]()
 
 ## TO DO
--[ ] add dependencies 
 -[ ] phpunit 
--[ ] xdebug
 -[ ] configure sendmail + ;mail.log =
 -[ ] define error_log
 -[ ] check php-fpm pm.status_path
